@@ -3,7 +3,7 @@ Type: Project
 Name: tools-station
 Provider:
   - 阿里云
-Version: 0.0.1
+Version: 0.0.2
 Description: 基于 Next.js + TailwindCSS 的工具集合站，一键部署到阿里云函数计算
 HomePage: https://github.com/daifuyang/tools-station
 Tags:
