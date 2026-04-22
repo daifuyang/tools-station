@@ -17,7 +17,7 @@ Service:
     Authorities:
       - AliyunFCFullAccess
 Organization: 阿里云函数计算（FC）
-Effective: Public
+Effective: Private
 Parameters:
   type: object
   additionalProperties: false
