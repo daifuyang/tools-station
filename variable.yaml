@@ -1,0 +1,25 @@
+services:
+  tools-station:
+    region:
+      title: 地域
+      type: string
+      default: cn-shanghai
+      description: 函数计算地域
+      required: true
+      enum:
+        - cn-beijing
+        - cn-hangzhou
+        - cn-shanghai
+        - cn-shenzhen
+    functionName:
+      title: 函数名称
+      type: string
+      default: tools-station
+      description: 部署的函数名称
+      required: true
+    domain:
+      title: 自定义域名
+      type: string
+      default: tool.zerocmf.com
+      description: 访问域名
+      required: false

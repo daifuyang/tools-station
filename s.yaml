@@ -1,0 +1,43 @@
+edition: 3.0.0
+name: tools-station
+
+vars:
+  region: cn-shanghai
+  functionName: tools-station
+
+resources:
+  tools-station:
+    component: fc3
+    props:
+      region: ${vars.region}
+      functionName: ${vars.functionName}
+      runtime: custom.debian12
+      cpu: 2
+      memorySize: 4096
+      timeout: 60
+      instanceConcurrency: 10
+      diskSize: 512
+      internetAccess: true
+      customRuntimeConfig:
+        command:
+          - ./bootstrap
+        args:
+          - ./server.js
+      environmentVariables:
+        NODE_ENV: production
+        PATH: /var/fc/lang/nodejs22/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/sbin:/bin
+        NODE_PATH: /opt/nodejs/node_modules
+      code: ./.next/standalone
+      triggers:
+        - triggerName: http-trigger
+          triggerType: http
+          qualifier: LATEST
+          triggerConfig:
+            authType: anonymous
+            methods:
+              - GET
+              - POST
+              - PUT
+              - PATCH
+              - DELETE
+              - OPTIONS
